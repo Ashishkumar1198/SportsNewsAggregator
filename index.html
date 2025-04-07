@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Navigation Bar (Sticky) -->
+
     <nav class="sticky top-0 z-50 bg-[#1A1A2E] shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Recent IPL Series -->
+
     <section class="hero-bg min-h-screen flex items-center justify-center">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-5xl md:text-6xl font-bold mb-4">
@@ -34,14 +34,14 @@
             <p class="text-lg md:text-xl mb-8 text-gray-200">
                 Catch up on the thrilling moments from the recent IPL series!
             </p>
-            <!-- IPL Matches Today -->
+
             <div id="ipl-matches" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- Dynamically populated via JS -->
+
             </div>
         </div>
     </section>
 
-    <!-- Chatbot Section -->
+
     <section id="chatbot" class="py-16 bg-[#1A1A2E]">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold mb-8">Ask Our <span class="highlight">Sports Chatbot</span></h2>
@@ -60,42 +60,40 @@
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
                     </div>
-                    <!-- Chat History will be appended here -->
+
                 </div>
-                <!-- Chat History Section -->
+    
                 <div id="chat-history" class="mt-4 max-h-64 overflow-y-auto bg-gray-800 p-4 rounded-lg">
                     <h3 class="text-lg font-semibold mb-2 text-pink-500">Chat History</h3>
-                    <!-- Responses will be dynamically added here -->
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recent News Section -->
+
     <section class="py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">
                 Recent <span class="highlight">Sports News</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="news-grid">
-                <!-- 6 News Cards Dynamically Populated -->
             </div>
         </div>
     </section>
 
-    <!-- Live Scores Widget -->
+ 
     <section class="py-16 bg-[#1A1A2E]">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">
                 Live <span class="highlight">Scores</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="live-scores">
-                <!-- Dynamically populated via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Enhanced Footer -->
+   
     <footer class="bg-[#1A1A2E] py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
             <div>
