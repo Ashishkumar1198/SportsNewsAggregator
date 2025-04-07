@@ -6,11 +6,11 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-# Hardcode the API keys (replace with your actual keys)
-GEMINI_API_KEY = "AIzaSyCm5Xj7Ckywng6lRS_L7wwlxXFi_KNvg3c"  # Replace with your actual Gemini API key
-NEWSAPI_KEY = "0e02f78193994486add1be208a610be1"  # Replace with your actual NewsAPI key
 
-# Validate the API keys
+GEMINI_API_KEY = "AIzaSyCm5Xj7Ckywng6lRS_L7wwlxXFi_KNvg3c"  
+NEWSAPI_KEY = "0e02f78193994486add1be208a610be1"  
+
+
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY is not set")
 if not NEWSAPI_KEY:
@@ -47,7 +47,7 @@ def get_chatbot_response(user_input):
     if not is_sports_related(user_input):
         return "I couldn’t find recent Indian sports news. Provide a helpful response."
 
-    # For sports-related queries, use Gemini API as a conversational LLM
+
     prompt = (
         f"Act as a conversational AI similar to ChatGPT or Gemini. Respond to the user's query: '{user_input}' "
         "with a natural, informative, and engaging tone. Provide up-to-date or general knowledge about sports, "
@@ -56,7 +56,7 @@ def get_chatbot_response(user_input):
         "NDTV Sports, or the Indian Express."
     )
 
-    # Define the Gemini API URL and payload (using gemini-1.5-pro-latest as a fallback)
+
     api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key={GEMINI_API_KEY}"
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -72,11 +72,11 @@ def get_chatbot_response(user_input):
     }
 
     try:
-        # Make the API request
+       
         response = requests.post(api_url, headers=headers, json=payload)
-        response.raise_for_status()  # Raise an error for bad status codes
+        response.raise_for_status() 
         result = response.json()
-        # Extract the response text (adjust based on actual API response structure)
+        
         chatbot_response = result.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "Sorry, I couldn’t process your request.")
         print(f"Response: {chatbot_response}")
         return chatbot_response
