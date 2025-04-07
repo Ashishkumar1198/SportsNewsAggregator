@@ -19,7 +19,7 @@ if not NEWSAPI_KEY:
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Define sports-related keywords
+
 SPORTS_KEYWORDS = {
     "cricket", "football", "soccer", "tennis", "ipl", "premier league", "bundesliga",
     "hockey", "basketball", "volleyball", "badminton", "sports", "match", "score",
