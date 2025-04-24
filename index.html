@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsGenius - AI Sports News Aggregator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="chatbot.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="bg-[#0F0F1A] text-white font-['Inter']">
+    <!-- Hero Section with Chatbot -->
+    <section class="relative min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 bg-[url('https://ftw.usatoday.com/wp-content/uploads/sites/90/2018/04/afp_afp_13o1po_98916015-e1522841933158.jpg?w=1000&h=600&crop=1')] bg-cover bg-center opacity-20"></div>
+        <div class="container mx-auto max-w-2xl p-6 z-10">
+            <div class="flex-1 bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden">
+                <!-- Header -->
+                <header class="bg-white p-4 border-b border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-robot text-xl text-[#4C51BF]"></i>
+                            <h1 class="text-xl font-bold text-[#1A202C]">SportsGenius</h1>
+                        </div>
+                        <span class="text-sm text-[#718096]">AI Sports News Assistant</span>
+                    </div>
+                </header>
+
+                <!-- Chat Container -->
+                <div id="chat-container" class="flex-1 p-6 overflow-y-auto">
+                    <!-- Welcome Message -->
+                    <div class="chat-message bot-message mb-6">
+                        <div class="message-content bg-[#EDF2F7] p-4 rounded-xl max-w-[70%]">
+                            <p class="text-[#1A202C]">Hello! I'm your AI sports assistant. Ask me about:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-[#1A202C]">
+                                <li>Live scores and match updates</li>
+                                <li>Player stats and transfer news</li>
+                                <li>Tournament schedules and results</li>
+                                <li>Sports analysis and predictions</li>
+                            </ul>
+                            <p class="mt-2 text-[#4C51BF] font-medium">Try asking: "What's the latest Premier League news?"</p>
+                        </div>
+                        <div class="text-xs text-[#718096] mt-1">Just now</div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="p-6 border-t border-gray-200">
+                    <div class="flex space-x-3">
+                        <input 
+                            type="text" 
+                            id="user-input" 
+                            placeholder="Ask about sports news..." 
+                            class="flex-1 border border-[#E2E8F0] rounded-lg px-4 py-3 text-[#1A202C] focus:outline-none focus:ring-2 focus:ring-[#4C51BF] bg-white"
+                            autocomplete="off"
+                        >
+                        <button 
+                            id="send-button" 
+                            class="bg-[#4C51BF] hover:bg-[#434190] text-white w-12 h-12 flex items-center justify-center rounded-full transition-all duration-200"
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-6 left-6 flex space-x-4">
+            <a href="#" class="text-white hover:text-[#A3BFFA]">Home</a>
+            <a href="#" class="text-white hover:text-[#A3BFFA]">Pricing</a>
+            <a href="#" class="text-white hover:text-[#A3BFFA]">Login</a>
+        </div>
+        <div class="absolute top-6 right-6">
+            <button class="bg-[#A3BFFA] text-white px-4 py-2 rounded-full hover:bg-[#8A9BFF]">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Sports News Aggregation with AI -->
+    <section class="py-16 px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Sports News Aggregation with AI</h2>
+        <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto">Get real-time sports updates, player stats, and analysis powered by advanced AI, tailored to your favorite sports.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="bg-[#1F1F2E] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 class="text-xl font-semibold text-[#A3BFFA] mb-4">Live Score Updates</h3>
+                <p class="text-gray-400">Instant access to live scores and match commentary for IPL, EPL, and more, updated every minute.</p>
+            </div>
+            <div class="bg-[#1F1F2E] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 class="text-xl font-semibold text-[#A3BFFA] mb-4">Player Statistics</h3>
+                <p class="text-gray-400">Detailed stats on top players, including batting averages, goals, and recent performances.</p>
+            </div>
+            <div class="bg-[#1F1F2E] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 class="text-xl font-semibold text-[#A3BFFA] mb-4">Transfer News</h3>
+                <p class="text-gray-400">Stay updated with the latest transfer rumors and confirmed deals across major leagues.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A1A2A] py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex justify-center mb-6">
+                <img src="https://via.placeholder.com/100x40" alt="SportsGenius Logo" class="h-10">
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-[#A3BFFA]">Resources</a>
+                <a href="#" class="text-gray-400 hover:text-[#A3BFFA]">Pricing</a>
+                <a href="#" class="text-gray-400 hover:text-[#A3BFFA]">Explore</a>
+                <a href="#" class="text-gray-400 hover:text-[#A3BFFA]">Company</a>
+                <a href="#" class="text-gray-400 hover:text-[#A3BFFA]">Others</a>
+            </div>
+            <p class="text-gray-500 text-sm">© 2025 SportsGenius. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            
+            function scrollToBottom() {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            function addMessage(content, isUser = false, timestamp = 'Just now') {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${isUser ? 'user-message flex justify-end' : 'bot-message'} mb-6`;
+                
+                const renderedContent = isUser ? content : marked.parse(content);
+                
+                messageDiv.innerHTML = `
+                    <div class="max-w-[70%]">
+                        <div class="message-content ${isUser ? 'bg-[#4C51BF] text-white' : 'bg-[#EDF2F7] text-[#1A202C]'} p-4 rounded-xl">
+                            ${renderedContent}
+                        </div>
+                        <div class="text-xs text-[#718096] mt-1 ${isUser ? 'text-right' : ''}">${timestamp}</div>
+                    </div>
+                `;
+                
+                chatContainer.appendChild(messageDiv);
+                scrollToBottom();
+            }
+            
+            function showLoading() {
+                const loadingDiv = document.createElement('div');
+                loadingDiv.id = 'loading-indicator';
+                loadingDiv.className = 'chat-message bot-message mb-6';
+                loadingDiv.innerHTML = `
+                    <div class="max-w-[70%]">
+                        <div class="message-content bg-[#EDF2F7] p-4 rounded-xl">
+                            <div class="flex space-x-2">
+                                <div class="w-2 h-2 bg-[#4C51BF] rounded-full animate-bounce"></div>
+                                <div class="w-2 h-2 bg-[#4C51BF] rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-2 h-2 bg-[#4C51BF] rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-[#718096] mt-1">Typing...</div>
+                    </div>
+                `;
+                
+                chatContainer.appendChild(loadingDiv);
+                scrollToBottom();
+            }
+            
+            function hideLoading() {
+                const loadingDiv = document.getElementById('loading-indicator');
+                if (loadingDiv) loadingDiv.remove();
+            }
+            
+            async function handleUserInput() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                addMessage(message, true, timestamp);
+                userInput.value = '';
+                
+                showLoading();
+                
+                try {
+                    const response = await fetch('/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    const data = await response.json();
+                    hideLoading();
+                    
+                    if (data.status === 'success') {
+                        addMessage(data.response, false, data.time);
+                    } else {
+                        addMessage(data.response, false, timestamp);
+                    }
+                } catch (error) {
+                    hideLoading();
+                    addMessage("Sorry, I'm having trouble connecting. Please try again later.", false, timestamp);
+                    console.error('Error:', error);
+                }
+            }
+            
+            sendButton.addEventListener('click', handleUserInput);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') handleUserInput();
+            });
+            
+            userInput.focus();
+        });
+    </script>
+</body>
+</html>
