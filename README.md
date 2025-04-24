@@ -8,7 +8,7 @@ SportsNewsAggregator/
 │   └── index.html
 ```
 
-### Informational and Structured README Content
+
 Welcome to the SportsNewsAggregator repository! This project is a sports-focused chatbot application built using Flask, designed to provide users with the latest sports news and updates, with a special emphasis on the Indian Premier League (IPL) and other major sports leagues.
 
 #### Project Overview
