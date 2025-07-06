@@ -37,12 +37,12 @@ Welcome to the SportsNewsAggregator repository! This project is a sports-focused
      CRIC_API_KEY=your_cric_api_key
      GEMINI_API_KEY=your_gemini_api_key
      ```
-3. **Install Dependencies**:
+3**Install Dependencies**:
    - Ensure you have Python installed.
    - Run:
      ```
      pip install -r requirements.txt
-     ```
+     ```. 
 4. **Run the Application**:
    - Execute:
      ```
